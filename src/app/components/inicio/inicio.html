@@ -1,0 +1,46 @@
+<!-- Contenedor principal con clases para evitar chocar con el navbar 'fixed' -->
+<div class="w-full mx-auto min-h-screen pb-28">
+
+  <div class="w-full bg-cyan-800 text-white rounded-b-3xl px-6 pt-8 pb-10 flex flex-col items-center gap-6">
+
+    <div class="flex flex-col items-center">
+      <div class="flex items-center">
+        <ng-icon class="text-6xl" name="tdesignPlus" />
+        <div class="flex flex-col leading-tight">
+          <span class="text-xl font-bold">PLUSVIDA</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex items-center gap-2">
+      <p class="text-lg">¡Hola, {{ usuarioActivo ? usuarioActivo : "Usuario" }}!</p>
+      <ng-icon name="tdesignUser1Filled" class="text-2xl text-white"/>
+    </div>
+
+    <div class="bg-white text-gray-700 w-full flex items-center gap-2 px-4 py-2 rounded-xl">
+      <ng-icon name="tdesignSearch" />
+      <input 
+        type="text" 
+        placeholder="Buscar Medicamento" 
+        class="w-full focus:outline-none "
+      disabled>
+    </div>
+
+    <div class="bg-white text-gray-800 w-full px-4 py-3 rounded-xl flex justify-between items-center shadow">
+      <span>Notificaciones</span>
+      <span class="font-medium">4</span>
+    </div>
+
+  </div>
+
+  <!-- Lista de notificaciones -->
+  <div class="px-4 mt-6">
+    <h2 class="font-medium text-gray-800">Notificaciones (4)</h2>
+
+    <!-- Barras (emulacion visual notificaciones) -->
+    <div class="mt-4 bg-gray-200 rounded-sm space-y-3 m-4 p-4">
+      <p>Notificaciones visibles</p>
+    </div>
+  </div>
+
+</div>

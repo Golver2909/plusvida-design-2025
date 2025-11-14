@@ -1,0 +1,166 @@
+<div class="w-full mx-auto bottom-40 min-h-screen pb-28">
+    <div class="w-full bg-cyan-800 text-white rounded-b-3xl px-6 pt-8 pb-10 flex flex-col items-center gap-6">
+        <div class="flex flex-col items-center">
+            <div class="flex items-center">
+                <ng-icon class="text-6xl" name="tdesignPlus" />
+                <div class="flex flex-col leading-tight">
+                    <span class="text-xl font-bold">PLUSVIDA</span>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="bg-white text-gray-700 w-full flex items-center gap-2 px-4 py-2 rounded-xl">
+            <p class="w-full text-teal-900 font-semibold text-lg text-center">Mis recetas</p>
+        </div>
+    </div>
+    @if(mostrarAllRecetas){
+    @for(receta of recetasUsuario ; track $index){
+
+    <div class="bg-gray-100 flex items-center justify-center p-4">
+        <div [class]="{
+            'bg-emerald-200':receta.habilitado,
+            'bg-red-300':!receta.habilitado,
+            'w-full':true,
+            'max-w-xs':true ,
+            'rounded-2xl':true ,
+            'shadow-md':true ,
+            'p-5':true ,
+            'relative':true}">
+            <!-- Header -->
+            <div class="flex items-start justify-between">
+                <div class="flex items-center gap-3">
+                    <div [class.bg-teal-900]="receta.habilitado" [class.bg-red-700]="!receta.habilitado"
+                        class=" text-white p-2 rounded-lg flex items-center justify-center">
+                        <!-- Icono calendario -->
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M8.25 6.75h.008v.008H8.25V6.75zm0 3h.008v.008H8.25V9.75zm0 3h.008v.008H8.25v-.008zM12 6.75h.008v.008H12V6.75zm0 3h.008v.008H12V9.75zm0 3h.008v.008H12v-.008zM15.75 6.75h.008v.008h-.008V6.75zm0 3h.008v.008h-.008V9.75zm0 3h.008v.008h-.008v-.008z" />
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M3.375 7.5h17.25M3.75 6.75V18a2.25 2.25 0 002.25 2.25h12A2.25 2.25 0 0020.25 18V6.75m-3-3v3m-10.5-3v3" />
+                        </svg>
+                    </div>
+                    <div>
+                        <h2 [class.text-teal-900]="receta.habilitado" [class.text-zinc-800]="!receta.habilitado"
+                            class=" font-semibold text-lg">Receta N° {{receta.id}}</h2>
+                        <p class="text-xs text-gray-700 tracking-wide">{{receta.fechaEmision}}</p>
+                    </div>
+                </div>
+                <div>
+                    <!-- Check icon -->
+                    @if(receta.habilitado){
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                        stroke="currentColor" class="w-5 h-5 text-black">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                    </svg>
+                    }@else {
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                        stroke="currentColor" class="w-5 h-5 text-black">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                    }
+
+                </div>
+            </div>
+
+
+            <!-- Placeholder lines -->
+            <div [class]="{
+                'bg-gray-200':receta.habilitado,
+                'bg-gray-300':!receta.habilitado,
+                'mt-4':true,
+                'space-y-2':true,
+                'm-4':true,
+                'rounded-sm':true,
+                'p-2':true
+            }">
+                Esta receta fue emitida el dia {{receta.fechaEmision}} por
+                el doctor {{receta.doctor}}
+            </div>
+
+
+            <!-- Button -->
+            <div class="flex justify-end mt-4">
+                <button (click)="verMas(receta)" [class.bg-teal-900]="receta.habilitado" [class.bg-red-800]="!receta.habilitado"
+                    class="text-white px-4 py-1.5 rounded-full text-sm shadow">Ver más</button>
+            </div>
+        </div>
+    </div>
+    }@empty {
+
+    }
+    }@else {
+
+    <div class="bg-gray-100 flex items-center justify-center p-4">
+        <div class="w-full max-w-sm rounded-2xl shadow-md p-6"
+        [class.bg-emerald-200]="recetaVisible.habilitado"
+        [class.bg-red-300]="!recetaVisible.habilitado">
+
+
+            <!-- Estado -->
+            <div class="flex items-center gap-2 font-semibold text-lg mb-4"
+            [class.text-teal-900]="recetaVisible.habilitado"
+            [class.text-red-800]="!recetaVisible.habilitado">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                    stroke="currentColor" class="w-5 h-5">
+                    @if(recetaVisible.habilitado){
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                    }@else {
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    }
+                    
+                </svg>
+                <span>{{recetaVisible.habilitado ? "ACTIVA" : "INACTIVA" }}</span>
+            </div>
+
+
+            <!-- Fecha de fin -->
+            <div class="flex items-center gap-3 mb-6">
+                <div class="text-white p-2 rounded-lg flex items-center justify-center"
+                [class.bg-teal-900]="recetaVisible.habilitado"
+                [class.bg-red-800]="!recetaVisible.habilitado">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M8.25 6.75h.008v.008H8.25V6.75zm0 3h.008v.008H8.25V9.75zm0 3h.008v.008H8.25v-.008zM12 6.75h.008v.008H12V6.75zm0 3h.008v.008H12V9.75zm0 3h.008v.008H12v-.008zM15.75 6.75h.008v.008h-.008V6.75zm0 3h.008v.008h-.008V9.75zm0 3h.008v.008h-.008v-.008z" />
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M3.375 7.5h17.25M3.75 6.75V18a2.25 2.25 0 002.25 2.25h12A2.25 2.25 0 0020.25 18V6.75m-3-3v3m-10.5-3v3" />
+                    </svg>
+                </div>
+                <p class="font-semibold"
+                [class.text-teal-900]="recetaVisible.habilitado"
+                [class.text-red-800]="!recetaVisible.habilitado">
+                    {{recetaVisible.fechaEmision}}
+                </p>
+            </div>
+
+            <h2 class="font-bold text-xl mb-3 tracking-wide"
+            [class.text-teal-900]="recetaVisible.habilitado"
+            [class.text-red-800]="!recetaVisible.habilitado">
+                Emitida por {{recetaVisible.doctor}}
+            </h2>
+
+            <div class="w-full h-40 p-3 rounded-lg bg-gray-200 text-gray-700 outline-none resize-none">
+                <p>{{recetaVisible.detalles}}</p>
+                <p>Firmado Dr. {{recetaVisible.doctor}}</p>
+            </div>
+            
+
+
+            <!-- Botón -->
+            <div class="flex justify-center mt-6">
+                <button (click)="mostrarAllRecetas = true"  
+                class="text-white px-6 py-1.5 rounded-full text-sm shadow"
+                [class.bg-teal-900]="recetaVisible.habilitado"
+                [class.bg-red-800]="!recetaVisible.habilitado">
+                    Volver atrás
+                </button>
+            </div>
+
+
+        </div>
+    </div>
+    }
+
+</div>
