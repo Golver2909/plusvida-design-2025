@@ -25,8 +25,9 @@ export class Navbar {
   noDisponible():void{
     Swal.fire({
       icon:"error",
-      text:"Vista no disponible",
-      confirmButtonColor:"#065f46"
+      title:"Vista no disponible",
+      text:"Comuniquese con su desarrollador.",
+      confirmButtonColor:"#276678"
     })
   }
 }

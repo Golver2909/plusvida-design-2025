@@ -50,6 +50,26 @@ export class MisRecetas {
          detalles:`
           Refrianex 20 capsulas
           `
+      },
+      {
+        id: 3,
+        fechaEmision: "17-08-2025",
+        plazoVencimiento: 60,
+        doctor:"Juan Roman Riquelme",
+        habilitado: false,
+         detalles:`
+          ¿Objeto o pastel? 
+         `
+      },
+      {
+        id: 4,
+        fechaEmision: "28-10-2025",
+        plazoVencimiento: 60,
+        doctor:"Santiago Palermo",
+        habilitado: true,
+         detalles:`
+          Refrianex 20 capsulas
+          `
       }
     ]
   }

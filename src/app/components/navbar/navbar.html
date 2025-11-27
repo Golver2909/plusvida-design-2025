@@ -1,4 +1,4 @@
-<nav class="w-full h-20 bg-amber-100 text-zinc-900 flex items-center text-center justify-center">
+<nav class="w-full h-20 bg-zinc-200 text-zinc-900 flex items-center text-center justify-center">
     @for(r of routes ; track $index){
         @if(r.texto === "Avisos" || r.texto === "Perfil"){
             <div (click)="noDisponible()" class="m-4 w-1/6 border-0 rounded-sm flex flex-col items-center justify-center text-center gap-1 hover:bg-cyan-200 transition">
