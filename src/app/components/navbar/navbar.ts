@@ -18,7 +18,7 @@ export class Navbar {
       {ruta:"/", texto:"Inicio", icon:"tdesignHome"},
       {ruta:"/recetas", texto:"Recetas" , icon:"tdesignRootList"},
       {ruta:"/notificaciones", texto:"Avisos" , icon:"tdesignNotification"},
-      {ruta:"/editar-perfil", texto:"Perfil", icon:"tdesignUser"}
+      {ruta:"/perfil-usuario", texto:"Perfil", icon:"tdesignUser"}
     ]
   }
 

@@ -4,6 +4,7 @@ import { Inicio } from '../../components/inicio/inicio';
 import { Navbar } from '../../components/navbar/navbar';
 import { NgIconsModule } from '@ng-icons/core';
 import { tdesignHome, tdesignNotification, tdesignRootList, tdesignUser, tdesignUser1Filled, tdesignSearch } from '@ng-icons/tdesign-icons';
+import { Usuario } from '../../services/usuario/usuario';
 
 
 
@@ -21,6 +22,7 @@ import { tdesignHome, tdesignNotification, tdesignRootList, tdesignUser, tdesign
       tdesignRootList,
       tdesignUser1Filled
     }),
+    
   ],
   exports:[
     Inicio,

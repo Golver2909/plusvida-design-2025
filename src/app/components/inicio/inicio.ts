@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
 import { NgIcon, provideIcons  } from '@ng-icons/core';
 import { tdesignSearch,tdesignUser1Filled, tdesignPlus } from '@ng-icons/tdesign-icons';
+import { Usuario } from '../../services/usuario/usuario';
+import { RouterLink } from "@angular/router";
 
 @Component({
   selector: 'app-inicio',
-  imports:[NgIcon],
+  imports: [NgIcon, RouterLink],
   templateUrl: './inicio.html',
   styleUrl: './inicio.css',
   viewProviders:[provideIcons({
@@ -16,8 +18,12 @@ import { tdesignSearch,tdesignUser1Filled, tdesignPlus } from '@ng-icons/tdesign
 export class Inicio {
 usuarioActivo: string | null
 
-constructor(){
-  this.usuarioActivo = "Lucas"
+cantidadNotifications:number
+
+constructor(userService:Usuario){
+  this.usuarioActivo = userService.usuarioActivo
+
+  this.cantidadNotifications = userService.notificacionesNum
 }
 
 }
