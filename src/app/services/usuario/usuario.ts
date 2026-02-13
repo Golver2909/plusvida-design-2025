@@ -5,8 +5,10 @@ import { Notification } from '../../interfaces/notification';
   providedIn: 'root',
 })
 export class Usuario {
+  //Variable para obtener el nombre de usuario activo. A modificar en proximas versiones.
   usuarioActivo:string|null = "Lucas"
 
+  //Variable para obtener notificaciones del tipo "Notification". A modificar en proximas versiones.
   allUserNotifications:Notification[] = [
     {
       id:1,
@@ -20,8 +22,10 @@ export class Usuario {
     }
   ]
 
+  //Variable que guarda la cantidad de notificaciones del usuario activo. Eliminable.
   notificacionesNum:number = this.allUserNotifications.length
 
+  //Metodo temporal para cambiar al usuario activo. Eliminar una vez se conecte la base de datos.
   cambiarUsuarioActivo(username:string):void{
     this.usuarioActivo = username
   }

@@ -11,7 +11,7 @@ import Swal from 'sweetalert2';
   styleUrl: './navbar.css'
 })
 export class Navbar {
-  routes:Route[]
+  routes:Route[]//Arreglo de rutas mostradas en el navbar
 
   constructor(){ 
     //Informacion relativa a rutas usadas en los items del Navbar. Necesario para el uso de @for

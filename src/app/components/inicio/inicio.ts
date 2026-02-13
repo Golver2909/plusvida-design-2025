@@ -16,14 +16,16 @@ import { RouterLink } from "@angular/router";
   })]
 })
 export class Inicio {
-usuarioActivo: string | null
+  //Variables declaradas para guardar datos obtenidos del servicio de usuario
+  usuarioActivo: string | null
 
-cantidadNotifications:number
+  cantidadNotifications:number
 
-constructor(userService:Usuario){
-  this.usuarioActivo = userService.usuarioActivo
+  //Datos obtenidos del servicio
+  constructor(userService:Usuario){
+    this.usuarioActivo = userService.usuarioActivo
 
-  this.cantidadNotifications = userService.notificacionesNum
-}
+    this.cantidadNotifications = userService.notificacionesNum
+  }
 
 }
