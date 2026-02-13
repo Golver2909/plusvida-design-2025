@@ -14,6 +14,10 @@
             <p class="w-full text-teal-900 font-semibold text-lg text-center">Mis recetas</p>
         </div>
     </div>
+    <!-- 
+    @if verifica si se debe mostrar una receta, o mostrar la lista general de recetas
+    @for recorre el arreglo de recetas del usuario y muestra los detalles recopilados
+    -->
     @if(mostrarAllRecetas){
     @for(receta of recetasUsuario ; track $index){
 
@@ -48,13 +52,15 @@
                     </div>
                 </div>
                 <div>
-                    <!-- Check icon -->
+                    <!-- Verifica el atributo "habilitado" de una receta, y muestra un icono en base a su valor -->
                     @if(receta.habilitado){
+                    <!-- Check icon -->
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
                         stroke="currentColor" class="w-5 h-5 text-black">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
                     </svg>
                     }@else {
+                    <!-- Mistake icon -->
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
                         stroke="currentColor" class="w-5 h-5 text-black">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
@@ -80,7 +86,7 @@
             </div>
 
 
-            <!-- Button -->
+            <!-- Button que ejecuta el metodo "verMas", mandando la receta actual como parametro -->
             <div class="flex justify-end mt-4">
                 <button (click)="verMas(receta)" [class.bg-teal-900]="receta.habilitado" [class.bg-red-800]="!receta.habilitado"
                     class="text-white px-4 py-1.5 rounded-full text-sm shadow">Ver más</button>
@@ -91,7 +97,7 @@
 
     }
     }@else {
-
+    <!-- Vista individual mostrada una vez se ejecuta el motodo "verMas()" -->
     <div class="bg-gray-100 flex items-center justify-center p-4">
         <div class="w-full max-w-sm rounded-2xl shadow-md p-6"
         [class.bg-emerald-200]="recetaVisible.habilitado"

@@ -1,3 +1,4 @@
+//Estructura recetas medicas
 export interface Recipe{
     id : number;
     fechaEmision : string;

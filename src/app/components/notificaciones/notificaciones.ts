@@ -12,12 +12,15 @@ import { Notification } from '../../interfaces/notification';
   viewProviders: [provideIcons({ tdesignPlus })]
 })
 export class Notificaciones {
+  //Declaradas variables que recibiran datos del servicio de usuario.
+
   usuarioActivo: string | null
 
   cantNotificaciones:number
 
   notifications:Notification[]
 
+  //Obtencion de datos alojados en el servicio de usuario.
   constructor(userService:Usuario){
     this.usuarioActivo = userService.usuarioActivo
 

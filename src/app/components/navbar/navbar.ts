@@ -13,7 +13,8 @@ import Swal from 'sweetalert2';
 export class Navbar {
   routes:Route[]
 
-  constructor(){
+  constructor(){ 
+    //Informacion relativa a rutas usadas en los items del Navbar. Necesario para el uso de @for
     this.routes = [
       {ruta:"/", texto:"Inicio", icon:"tdesignHome"},
       {ruta:"/recetas", texto:"Recetas" , icon:"tdesignRootList"},
@@ -22,6 +23,7 @@ export class Navbar {
     ]
   }
 
+  //Metodo temporal. Eliminable/modificable en versiones mas avanzadas.
   noDisponible():void{
     Swal.fire({
       icon:"error",

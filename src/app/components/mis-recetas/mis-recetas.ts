@@ -11,6 +11,7 @@ import { Recipe } from '../../interfaces/recipe';
   viewProviders: [provideIcons({ tdesignPlus })]
 })
 export class MisRecetas {
+  //Variables para recibir recetas, mostrar detalles y mostrar todas las recetas
 
   recetasUsuario:Recipe[]
 
@@ -19,6 +20,7 @@ export class MisRecetas {
   mostrarAllRecetas:boolean //Valor booleano para mostrar todas las recetas
 
   constructor(){
+    //Valores para variables ingresados manualmente. Modificar una vez avanzado el proyecto
     this.mostrarAllRecetas = true
 
     this.recetaVisible = {
@@ -74,6 +76,7 @@ export class MisRecetas {
     ]
   }
 
+  //Metodo para mostrar detalles especificos de una receta
   verMas(receta:Recipe):void{
     this.recetaVisible = {
       id:receta.id,
